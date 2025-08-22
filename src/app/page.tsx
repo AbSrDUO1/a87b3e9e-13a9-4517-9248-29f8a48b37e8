@@ -35,10 +35,10 @@ export default function Home() {
       <section id="testimonials" className="bg-soft-noise py-20">
         <ContentTextbox 
           title={<h3 className="text-2xl font-semibold">What Our Clients Say</h3>} 
-          description={<p>"An inspiring experience!" - <strong>Jane Doe, Marketing Director</strong></p>} 
+          description={<p>“An inspiring experience!” - <strong>Jane Doe, Marketing Director</strong></p>} 
           className="max-w-6xl mx-auto" 
         >
-          <p>"Transformative results!" - <strong>John Smith, CEO</strong></p>
+          <p>“Transformative results!” - <strong>John Smith, CEO</strong></p>
         </ContentTextbox>
       </section>
       <section id="faq" className="bg-white py-20">
