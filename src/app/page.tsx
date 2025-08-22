@@ -1,6 +1,4 @@
 "use client"
-import Image from 'next/image';
-import Link from 'next/link';
 import ContentTextbox from '@/components/textbox/ContentTextbox';
 import MomoCoinAbout from '@/components/sections/layouts/about/Momocoinabout';
 import PepeHero from '@/components/sections/layouts/hero/PepeHero';
@@ -46,6 +44,30 @@ export default function Home() {
           section: {
             className: "text-center",
             backgroundColor: "#FFFFFF",
+            backgroundPattern: "",
+            backgroundImage: "",
+            spotlight: {
+              width: "",
+              height: "",
+              left: "",
+              top: "",
+              rotate: "",
+              color: "",
+              blur: "",
+              opacity: 0,
+              mobileWidth: "",
+              mobileHeight: "",
+              mobileLeft: "",
+              mobileTop: "",
+              mobileRotate: "",
+            },
+            sparkles: {
+              particleColor: "",
+              particleDensity: 0,
+              minSize: 0,
+              maxSize: 0,
+              speed: 0,
+            },
           },
           title: {
             text: "About PulseLaunch",
