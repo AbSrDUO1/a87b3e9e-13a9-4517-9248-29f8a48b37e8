@@ -1,71 +1,90 @@
 "use client";
-import StandardTextbox from '@/components/textbox/StandardTextbox';
-import TextRenderer from '@/components/sections/layouts/TextRenderer';
-import ImageAccordion from '@/components/accordions/ImageAccordion';
+import Image from 'next/image';
+import Link from 'next/link';
 import ContentTextbox from '@/components/textbox/ContentTextbox';
+import StandardTextbox from '@/components/textbox/StandardTextbox';
+import SlideButton from '@/components/buttons/SlideButton';
+import Timeline from '@/components/timeline/Timeline';
+import TestimonialsBento from '@/components/bento/TestimonialsBento';
+import PricingBento from '@/components/bento/PricingBento';
+import PepeHero from '@/components/sections/layouts/hero/PepeHero';
+
+const heroImageSrc = "/images/logo.svg";
+const ctaLink = "#contact";
+const featureCards = [
+  { title: 'Feature One', description: 'Description for feature one.' },
+  { title: 'Feature Two', description: 'Description for feature two.' },
+  { title: 'Feature Three', description: 'Description for feature three.' }
+];
+const testimonials = [
+  { quote: 'Great product!', name: 'User A' },
+  { quote: 'Amazing experience!', name: 'User B' }
+];
 
 export default function Home() {
   return (
-    <div>
-      <section id="hero" className="bg-gradient-to-r from-blue-200 to-indigo-500 py-20 flex flex-col items-center justify-center text-center">
-        <TextRenderer config={{ text: 'Elevate Your Experience', className: 'text-5xl font-bold', useRetroText: false, animation: 'slide', shadowColor: 'rgba(0, 0, 0, 0.2)', shadowOffset: '2px 2px', animationProps: { duration: 500, stagger: 0, start: '0%', end: '100%', variant: 'trigger' }, gradientColors: { from: '#4F8CFF', to: '#22C55E' } }} as='h1' />
-        <TextRenderer config={{ text: 'Discover our innovative marketing solutions.', className: 'text-xl', useRetroText: false, animation: 'none', shadowColor: 'transparent', shadowOffset: '0', animationProps: { duration: 0, stagger: 0, start: '0%', end: '0%', variant: 'scrub' }, gradientColors: { from: 'transparent', to: 'transparent' } }} as='p' />
-        <button className="bg-accent text-white mt-4 py-2 px-4 rounded-md hover:shadow-lg transition-all">Get Started</button>
+    <>
+      <section id="hero" className="bg-gradient-to-r from-[#EFF4FF] to-[#FFFFFF] py-24 text-center">
+        <PepeHero
+          style={{ navbar: { logoSrc: heroImageSrc, buttonBgColor: '#2563EB', buttonHoverBgColor: '#1D4ED8', buttonTextColor: '#FFF', buttonHoverTextColor: '#FFF' }, section: { className: 'min-h-[400px]' }, heading: { text: 'Welcome to PulseLaunch!', className: 'text-5xl font-bold', }, ctaStyle: { containerClassName: 'py-4', buttonText: 'Get Started', buttonClassName: 'bg-[#2563EB] text-white' } }}
+          onMenuClick={() => {}} onContactClick={() => {}}
+        />
       </section>
-      <section id="features" className="bg-white py-20">
-        <ImageAccordion 
+
+      <section id="about" className="bg-white py-24">
+        <ContentTextbox
+          title={<h2 className="text-3xl font-bold">About PulseLaunch</h2>}
+          description={<p className="text-lg">PulseLaunch offers a seamless onboarding experience for users.</p>}
+          className="max-w-3xl mx-auto"
+        />
+      </section>
+
+      <section id="features" className="bg-[#F8FBFF] py-24">
+        <StandardTextbox
+          title={<h2 className="text-3xl font-bold">Features</h2>}
+          description={<p className="text-lg">Explore the features designed to enhance your experience.</p>}
+          className="max-w-3xl mx-auto"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+          {featureCards.map((feature, index) => (
+            <div key={index} className="p-6 rounded-lg shadow-card bg-white">
+              <h3 className="text-xl font-semibold">{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="testimonials" className="bg-soft-dot-grid py-24">
+        <TestimonialsBento
+          items={testimonials.map(t => ({ quote: t.quote, name: t.name }))}
+          className="max-w-3xl mx-auto"
+        />
+      </section>
+
+      <section id="pricing" className="bg-white py-24">
+        <PricingBento
           items={[
-            { title: 'Feature 1', content: 'Meaningful feature description.' },
-            { title: 'Feature 2', content: 'Another compelling feature.' },
-            { title: 'Feature 3', content: 'More fantastic functionalities.' }
-          ]} 
-          title="Our Features" 
-          imageSrc="/images/forest.jpg" 
-          imageAlt="A wonderful forest view" 
-          className="max-w-6xl mx-auto" 
+            { badge: ['Basic'], price: '$9', features: 'Feature 1, Feature 2' },
+            { badge: ['Pro'], price: '$19', subtitle: 'Best for small teams', features: 'All Basic features + More' },
+          ]}
+          className="max-w-3xl mx-auto"
         />
       </section>
-      <section id="about" className="bg-f7fafc py-20">
-        <StandardTextbox 
-          title={<h2 className="text-3xl font-bold">About Us</h2>} 
-          description={<p className="text-md">We are committed to providing exceptional marketing services that propel your business forward.</p>} 
-          className="max-w-6xl mx-auto" 
+
+      <section id="contact" className="bg-white py-24">
+        <ContentTextbox
+          title={<h2 className="text-3xl font-bold">Contact Us</h2>}
+          description={<p className="text-lg">Feel free to reach out for inquiries.</p>}
+          className="max-w-3xl mx-auto"
         />
-      </section>
-      <section id="testimonials" className="bg-soft-noise py-20">
-        <ContentTextbox 
-          title={<h3 className="text-2xl font-semibold">What Our Clients Say</h3>} 
-          description={<p>“An inspiring experience!” - <strong>Jane Doe, Marketing Director</strong></p>} 
-          className="max-w-6xl mx-auto" 
-        >
-          <p>“Transformative results!” - <strong>John Smith, CEO</strong></p>
-        </ContentTextbox>
-      </section>
-      <section id="faq" className="bg-white py-20">
-        <ContentTextbox 
-          title={<h4 className="text-xl">Frequently Asked Questions</h4>} 
-          description={<ul className="list-disc list-inside"><li>What services do you offer?</li><li>How can I get started?</li></ul>} 
-          className="max-w-6xl mx-auto" 
-        >
-          <p></p>
-        </ContentTextbox>
-      </section>
-      <section id="contact" className="bg-f5f7fa py-20">
-        <ContentTextbox 
-          title={<h5 className="text-lg">Contact Us</h5>} 
-          description={<p>If you have questions, reach out!</p>} 
-          className="max-w-6xl mx-auto" 
-        >
-          <p></p>
-        </ContentTextbox>
-        <form className="max-w-6xl mx-auto">
-          <input type="text" placeholder="Name" className="border rounded-md p-2 w-full" />
-          <input type="email" placeholder="Email" className="border rounded-md p-2 mt-4 w-full" />
-          <textarea placeholder="Message" className="border rounded-md p-2 mt-4 w-full" />
-          <button type="submit" className="bg-accent text-white mt-4 py-2 px-4 rounded-md">Send</button>
+        <form className="mt-4">
+          <input className="border border-gray-300 rounded p-2 w-full mb-4" type="text" placeholder="Name" required />
+          <input className="border border-gray-300 rounded p-2 w-full mb-4" type="email" placeholder="Email" required />
+          <textarea className="border border-gray-300 rounded p-2 w-full mb-4" placeholder="Message" required></textarea>
+          <SlideButton text="Submit" onClick={() => {}} className="bg-[#2563EB] text-white" />
         </form>
-        <p className="mt-4 text-sm text-gray-500">We respect your privacy.</p>
       </section>
-    </div>
+    </>
   );
 }

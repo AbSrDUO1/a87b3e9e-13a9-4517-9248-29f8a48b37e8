@@ -15,8 +15,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "OnePage Marketing Landing",
-  description: "Deliver a concise, high-conversion single-page marketing experience.",
+  title: "PulseLaunch",
+  description: "Single-page marketing landing to convert visitors into trial users."
 };
 
 export default function RootLayout({
@@ -24,7 +24,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <body className={`${interTight.variable} ${poppins.variable} antialiased`}>
+      <body
+        className={`${interTight.variable} ${poppins.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
