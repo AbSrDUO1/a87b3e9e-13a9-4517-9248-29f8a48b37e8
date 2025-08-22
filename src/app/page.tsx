@@ -5,7 +5,6 @@ import ContentTextbox from '@/components/textbox/ContentTextbox';
 import StandardTextbox from '@/components/textbox/StandardTextbox';
 import SlideButton from '@/components/buttons/SlideButton';
 import Timeline from '@/components/timeline/Timeline';
-import TestimonialsBento from '@/components/bento/TestimonialsBento';
 import PricingBento from '@/components/bento/PricingBento';
 import PepeHero from '@/components/sections/layouts/hero/PepeHero';
 
@@ -56,8 +55,14 @@ export default function Home() {
       </section>
 
       <section id="testimonials" className="bg-soft-dot-grid py-24">
-        <TestimonialsBento
-          items={testimonials.map(t => ({ quote: t.quote, name: t.name }))}
+        <StandardTextbox
+          title={<h2 className="text-3xl font-bold">Testimonials</h2>}
+          description={<p className="text-lg">What our users say about us.</p>}
+          className="max-w-3xl mx-auto"
+        />
+        <Timeline
+          items={testimonials.map(t => ({ title: t.quote, description: t.name }))}
+          title="Testimonials"
           className="max-w-3xl mx-auto"
         />
       </section>
