@@ -105,12 +105,12 @@ export default function Home() {
         <Carousel>
           <ContentTextbox
             title={<h3 className="text-xl font-bold">What Our Users Say!</h3>}
-            description={<p className="mt-4">"PulseLaunch has transformed our workflow! 💡" - Jane Doe</p>}
+            description={<p className="mt-4">&quot;PulseLaunch has transformed our workflow! 💡&quot; - Jane Doe</p>}
             className="text-center"
           />
           <ContentTextbox
             title={<h3 className="text-xl font-bold">What Our Users Say!</h3>}
-            description={<p className="mt-4">"An essential tool for my team! 🚀" - John Smith</p>}
+            description={<p className="mt-4">&quot;An essential tool for my team! 🚀&quot; - John Smith</p>}
             className="text-center"
           />
         </Carousel>
@@ -118,16 +118,14 @@ export default function Home() {
       <section id="pricing" className="bg-white py-[72px]">
         <ContentTextbox
           title={<h3 className="text-xl font-bold">Choose Your Plan</h3>}
-          description={<p className="mt-4">"Explore our plans tailored for different needs."
-          </p>}
+          description={<p className="mt-4">&quot;Explore our plans tailored for different needs.&quot;</p>}
           className="text-center"
         />
       </section>
       <section id="contact" className="bg-white py-[72px]">
         <ContentTextbox
           title={<h3 className="text-xl font-bold">Get in Touch</h3>}
-          description={<p className="mt-4">"We would love to hear from you! Fill out the form below."
-          </p>}
+          description={<p className="mt-4">&quot;We would love to hear from you! Fill out the form below.&quot;</p>}
           className="text-center"
         />
       </section>
