@@ -83,6 +83,11 @@ export default function Home() {
             className: "text-lg",
             containerClassName: "mt-4",
           },
+          layout: {
+            alignStart: true,
+            descriptionClassName: "text-base",
+            textboxClassName: "bg-gray-100 p-4",
+          },
           image: {
             parentClassName: "mt-8",
             className: "w-full h-auto",
