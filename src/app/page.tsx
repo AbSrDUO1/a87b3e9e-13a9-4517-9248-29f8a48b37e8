@@ -55,7 +55,9 @@ export default function Home() {
           title={<h5 className="text-lg">Contact Us</h5>} 
           description={<p>If you have questions, reach out!</p>} 
           className="max-w-6xl mx-auto" 
-        />
+        >
+          <p></p>
+        </ContentTextbox>
         <form className="max-w-6xl mx-auto">
           <input type="text" placeholder="Name" className="border rounded-md p-2 w-full" />
           <input type="email" placeholder="Email" className="border rounded-md p-2 mt-4 w-full" />
