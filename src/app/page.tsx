@@ -46,7 +46,9 @@ export default function Home() {
           title={<h4 className="text-xl">Frequently Asked Questions</h4>} 
           description={<ul className="list-disc list-inside"><li>What services do you offer?</li><li>How can I get started?</li></ul>} 
           className="max-w-6xl mx-auto" 
-        />
+        >
+          <p></p>
+        </ContentTextbox>
       </section>
       <section id="contact" className="bg-f5f7fa py-20">
         <ContentTextbox 
