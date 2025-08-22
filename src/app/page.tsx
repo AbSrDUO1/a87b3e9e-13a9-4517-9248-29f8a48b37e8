@@ -1,6 +1,4 @@
 "use client";
-import Image from 'next/image';
-import Link from 'next/link';
 import ContentTextbox from '@/components/textbox/ContentTextbox';
 import StandardTextbox from '@/components/textbox/StandardTextbox';
 import SlideButton from '@/components/buttons/SlideButton';
@@ -9,23 +7,13 @@ import PricingBento from '@/components/bento/PricingBento';
 import PepeHero from '@/components/sections/layouts/hero/PepeHero';
 
 const heroImageSrc = "/images/logo.svg";
-const ctaLink = "#contact";
-const featureCards = [
-  { title: 'Feature One', description: 'Description for feature one.' },
-  { title: 'Feature Two', description: 'Description for feature two.' },
-  { title: 'Feature Three', description: 'Description for feature three.' }
-];
-const testimonials = [
-  { quote: 'Great product!', name: 'User A' },
-  { quote: 'Amazing experience!', name: 'User B' }
-];
 
 export default function Home() {
   return (
     <>
       <section id="hero" className="bg-gradient-to-r from-[#EFF4FF] to-[#FFFFFF] py-24 text-center">
         <PepeHero
-          style={{ navbar: { logoSrc: heroImageSrc, buttonBgColor: '#2563EB', buttonHoverBgColor: '#1D4ED8', buttonTextColor: '#FFF', buttonHoverTextColor: '#FFF' }, section: { className: 'min-h-[400px]' }, heading: { text: 'Welcome to PulseLaunch!', className: 'text-5xl font-bold', }, ctaStyle: { containerClassName: 'py-4', buttonText: 'Get Started', buttonClassName: 'bg-[#2563EB] text-white' } }}
+          style={{ navbar: { logoSrc: heroImageSrc, buttonBgColor: '#2563EB', buttonHoverBgColor: '#1D4ED8', buttonTextColor: '#FFF', buttonHoverTextColor: '#FFF', buttonClassName: '', buttonContentClassName: '' }, section: { className: 'min-h-[400px]', backgroundColor: '', backgroundPattern: '', backgroundImage: '' }, heading: { text: 'Welcome to PulseLaunch!', className: 'text-5xl font-bold', useRetroText: false, animation: 'none', shadowColor: '', shadowOffset: '', animationProps: { duration: 0, stagger: 0, start: '', end: '', variant: 'trigger' }, gradientColors: { from: '', to: '' }, subheading: { text: '', className: '' }, ctaStyle: { containerClassName: 'py-4', addressText: '', addressClassName: '', buttonText: 'Get Started', buttonClassName: '', iconClassName: '' } }}
           onMenuClick={() => {}} onContactClick={() => {}}
         />
       </section>
@@ -45,7 +33,11 @@ export default function Home() {
           className="max-w-3xl mx-auto"
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-          {featureCards.map((feature, index) => (
+          {[
+            { title: 'Feature One', description: 'Description for feature one.' },
+            { title: 'Feature Two', description: 'Description for feature two.' },
+            { title: 'Feature Three', description: 'Description for feature three.' }
+          ].map((feature, index) => (
             <div key={index} className="p-6 rounded-lg shadow-card bg-white">
               <h3 className="text-xl font-semibold">{feature.title}</h3>
               <p>{feature.description}</p>
@@ -61,7 +53,10 @@ export default function Home() {
           className="max-w-3xl mx-auto"
         />
         <Timeline
-          items={testimonials.map(t => ({ title: t.quote, description: t.name }))}
+          items={[
+            { title: 'Great product!', description: 'User A', video: '', image: '' },
+            { title: 'Amazing experience!', description: 'User B', video: '', image: '' }
+          ]}
           title="Testimonials"
           className="max-w-3xl mx-auto"
         />
