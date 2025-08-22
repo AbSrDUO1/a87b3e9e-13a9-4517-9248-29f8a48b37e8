@@ -1,2 +1,35 @@
-@import 'tailwindcss';
-/* Existing styles */
+@import "tailwindcss";
+
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
+
+  .animate-pulse-scale {
+    animation: pulse-scale 2s ease-in-out 0.5s infinite;
+  }
+
+  @keyframes pulse-scale {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(0.7);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .bg-soft-noise { background-image: var(--bg-noise, none); background-color: var(--bg-base, transparent); opacity: 0.06 }
+  .bg-glass { backdrop-filter: blur(12px); background-color: rgba(255,255,255,0.6) }
+}
+
+:root {
+  --color-primary: #4F8CFF;
+  --color-background: #FFFFFF;
+  --color-text: #0F1220;
+  --color-accent: #22C55E;
+}
